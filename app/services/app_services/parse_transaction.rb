@@ -33,7 +33,7 @@ module AppServices
         transaction_lines = result.select { |line| line[0] == "2" }
         transaction_lines.each do |transaction_line|
           transaction_args = {
-            client: client,
+            # client: client,
             payment: payment,
             external_id: transaction_line[1..32],
             amount: transaction_line[33..45],
@@ -45,7 +45,7 @@ module AppServices
         discount_lines = result.select { |line| line[0] == "3" }
         discount_lines.each do |discount_line|
           discount_args = {
-            client: client,
+            # client: client,
             payment: payment,
             external_id: discount_line[1..32],
             amount: discount_line[33..45],
