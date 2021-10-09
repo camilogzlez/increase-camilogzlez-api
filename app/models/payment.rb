@@ -1,5 +1,5 @@
 class Payment < ApplicationRecord
-  belongs_to :client, foreign_key: :external_id
-  has_many :transactions, foreign_key: :external_id
-  has_many :discounts, foreign_key: :external_id
+  belongs_to :client
+  has_many :transactions
+  has_many :discounts
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_08_141006) do
+ActiveRecord::Schema.define(version: 2021_10_09_160052) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,8 @@ ActiveRecord::Schema.define(version: 2021_10_08_141006) do
     t.string "external_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "payment_id", null: false
+    t.index ["payment_id"], name: "index_discounts_on_payment_id"
   end
 
   create_table "payments", force: :cascade do |t|
@@ -46,6 +48,8 @@ ActiveRecord::Schema.define(version: 2021_10_08_141006) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.date "payment_date"
+    t.bigint "client_id", null: false
+    t.index ["client_id"], name: "index_payments_on_client_id"
   end
 
   create_table "transactions", force: :cascade do |t|
@@ -54,6 +58,11 @@ ActiveRecord::Schema.define(version: 2021_10_08_141006) do
     t.string "external_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "payment_id", null: false
+    t.index ["payment_id"], name: "index_transactions_on_payment_id"
   end
 
+  add_foreign_key "discounts", "payments"
+  add_foreign_key "payments", "clients"
+  add_foreign_key "transactions", "payments"
 end

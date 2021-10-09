@@ -1,5 +1,6 @@
 class Client < ApplicationRecord
-  has_many :payments, foreign_key: :external_id
-  has_many :transactions, through: :payments, foreign_key: :external_id
-  has_many :discounts, through: :payments, foreign_key: :external_id 
+  # validates :external_id, :uniqueness => true
+  has_many :payments
+  has_many :transactions, through: :payments
+  has_many :discounts, through: :payments
 end
