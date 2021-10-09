@@ -17,6 +17,8 @@ gem 'puma', '~> 5.0'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'faraday'
 gem 'pry-byebug', '~> 3.4'
+# Render JSON data
+gem "active_model_serializers"
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
