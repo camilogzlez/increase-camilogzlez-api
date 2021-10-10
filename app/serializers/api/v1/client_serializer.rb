@@ -12,6 +12,8 @@ module Api
                  :phone,
                  :external_id,
                  :payments
+                #  has_many :transactions, through: :payments
+
                 
     end
   end
