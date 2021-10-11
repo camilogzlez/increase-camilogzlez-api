@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :clients, only: %i[index show]
       resources :transactions, only: [:index]
-      get 'clients/:id/transactions', to: 'transactions#transactions_by_client'
+      get 'clients/:id/transactions', to: 'clients#transactions_by_client'
       get 'clients/:id/balance', to: 'clients#client_balance'
     end
   end

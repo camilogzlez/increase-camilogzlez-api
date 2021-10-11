@@ -2,5 +2,5 @@
 
 class Transaction < ApplicationRecord
   belongs_to :payment
-  belongs_to :client, through: :payments
+  enum status: %i[Created Approved Declined]
 end
