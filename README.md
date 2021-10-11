@@ -7,8 +7,8 @@ Para el inicio de la aplicación primero se deben ejecutar en el terminal los do
 
 Posteriormente, luego de iniciar el servidor (considerando servidor local) se pueden consultar los endpoints siguiendo las rutas a través de la aplicación Postman o similar.
 
-http://localhost:3000/api/v1/clients 
-http://localhost:3000/api/v1/clients/1/transactions  donde “1” corresponde al id del cliente 
+http://localhost:3000/api/v1/clients
+http://localhost:3000/api/v1/clients/1/transactions  donde “1” corresponde al id del cliente
 http://localhost:3000/api/v1/clients/1/balance donde “1” corresponde al id del cliente
 
 A continuación, link del repositorio de postman que permita realizar pruebas correspondientes. 
