@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Api
   module V1
     class ClientSerializer < ApplicationSerializer
@@ -12,9 +14,6 @@ module Api
                  :phone,
                  :external_id,
                  :payments
-                #  has_many :transactions, through: :payments
-
-                
     end
   end
 end

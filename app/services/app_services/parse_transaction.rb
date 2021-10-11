@@ -1,13 +1,13 @@
-module AppServices
+# frozen_string_literal: true
 
+module AppServices
   class ParseTransaction
-   require 'faraday'
+    require 'faraday'
     def parse_txt
-   
       response = Faraday.get('https://increase-transactions.herokuapp.com/file.txt') do |req|
         req.headers['Authorization'] = 'Bearer 1234567890qwertyuiopasdfghjklzxcvbnm'
       end
-      
+
       lines = response.body.split(/\n/)
       counter = 0
       results = []
@@ -16,7 +16,7 @@ module AppServices
         results[counter] << line
         counter += 1 if line[0] == '4'
       end
-     
+
       results.each do |result|
         client = Client.find_or_create_by(external_id: result.last[24..55])
         payment_args = {
@@ -30,7 +30,7 @@ module AppServices
         }
         payment = Payment.create(payment_args)
 
-        transaction_lines = result.select { |line| line[0] == "2" }
+        transaction_lines = result.select { |line| line[0] == '2' }
         transaction_lines.each do |transaction_line|
           transaction_args = {
             # client: client,
@@ -42,7 +42,7 @@ module AppServices
           Transaction.create(transaction_args)
         end
 
-        discount_lines = result.select { |line| line[0] == "3" }
+        discount_lines = result.select { |line| line[0] == '3' }
         discount_lines.each do |discount_line|
           discount_args = {
             # client: client,
@@ -55,6 +55,5 @@ module AppServices
         end
       end
     end
-
   end
 end

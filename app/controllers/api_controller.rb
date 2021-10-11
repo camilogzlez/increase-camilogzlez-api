@@ -7,7 +7,7 @@ class ApiController < ApplicationController
   # attr_accessor :current_user
 
   def not_found
-    render json: { error: "not_found" }
+    render json: { error: 'not_found' }
   end
 
   # def authorize_request

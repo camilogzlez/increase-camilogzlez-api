@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Client < ApplicationRecord
   # validates :external_id, :uniqueness => true
   has_many :payments
